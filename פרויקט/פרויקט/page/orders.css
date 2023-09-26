@@ -1,0 +1,264 @@
+﻿body {
+}
+
+* {
+    box-sizing: border-box;
+    direction: rtl;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color:lightpink;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4em;
+    color: deeppink;
+    margin-bottom:0;
+}
+h2 {
+    text-align: center;
+    font-size: 3em;
+    color: deeppink;
+    margin-bottom: 0;
+    margin-top:0;
+}
+
+
+input[type=submit]:hover {
+    background-color:deeppink;
+}
+
+.container {
+    border-radius: 5px;
+    background-color:pink;
+    padding: 20px;
+}
+
+.col-25 {
+    float: right;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: right;
+    width: 75%;
+    margin-top: 6px;
+ color:lightpink;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#copy{
+    background-color:lightpink;
+}
+#copy1 {
+    background-color:hotpink;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+a {
+    font-size: 25px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        font-size: 21px;
+    }
+
+        .dropdown-content a:hover {
+            background-color:lightpink;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    font-size: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+header {
+    background-color: white;
+}
+
+pre {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    direction: rtl;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+tr {
+    background-color: #FFDEAD;
+}
+
+    tr:nth-child(even) {
+        background-color: white;
+    }
+
+    tr:hover {
+        background-color:hotpink;
+        color: white;
+    }
+
+th {
+    background-color:deeppink;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.first {
+    font-weight: bold;
+}
+
+.flex-container {
+    display: flex;
+    background-color: white;
+    width: 100%;
+}
+form{
+    width:100%;
+}
+    .flex-container > div {
+        color: white;
+        /*width:300px;*/
+        width: 50%;
+        height: 5%;
+        margin: 10px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 30px;
+    }
+
+        .flex-container > div:hover {
+            opacity: 0.5;
+        }
+
+#iframe {
+    width: 100%;
+    height: 500px;
+    border: black;
+}
+
+body {
+    font-size: 28px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: black;
+    direction: rtl;
+}
+
+#logo {
+    width: 100%;
+    height: 90px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+li {
+    float: right;
+}
+
+    li a, .dropbtn {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+        li a:hover, .dropdown:hover .dropbtn {
+            background-color: deeppink;
+        }
+
+    li.dropdown {
+        display: inline-block;
+    }
+@media screen and (max-width: 1080px) {
+    button {
+        padding: 0px;
+        font-size: 15px;
+        min-height: 45px;
+        bottom: 6px;
+    }
+
+    .modal-content {
+        width: 80vw;
+        top: -1vh;
+    }
+}
+
+/*@media screen and (max-width: 430px) {
+    button {
+        padding: 0px;
+        font-size: 15px;
+        min-height: 45px;
+        bottom: 6px;
+    }
+
+    .modal-content {
+        width: 90vw;
+        float: right;
+        margin: 15px;
+    }
+}
+*/

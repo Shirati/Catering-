@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="D:\html\פרויקט\פרויקט\page\StyleSheet.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <img id="logo"  src="..\iMG\לוגו חדש.png" />
+    <hr />
+    <ul>
+        <li>
+            <a href="דף הבית.html">דף הבית</a>
+        </li>
+        <li>
+            <a href="בשרי.html">בשרי</a>
+        </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">חלבי</a>
+            <div class="dropdown-content">
+                <a href="פסטות.html"> פסטות</a>
+                <a href="מאפים.html">מאפים</a>
+                <a href="שיקים.html">שיקים</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">עוגות</a>
+            <div class="dropdown-content">
+                <a href="עוגות מספרים.html"> עוגות מספרים</a>
+                <a href="עוגות יומולדת.html">עוגות יומולדת</a>
+                <a href="עוגות קונדטוריה.html">עוגות קונדטוריה</a>
+            </div>
+        </li>
+        <li>
+            <a href="פרטים.html">פרטים </a>
+        </li>
+        <li>
+            <a href="orders.html">הזמנות</a>
+        </li>
+    </ul>
+    <hr />
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 /1</div>
+            <img class="im" style="width:100%"src="/iMG/עוגות/ucecramcake.jpg" />
+            
+            <div class="text">עוגת יומולדת</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 /2</div>
+            <img class="im" style="width:100%" src="D:\html\פרויקט\פרויקט\iMG\126868533_222570232626750_7110570329436791843_n-1-300x300.jpg" />
+
+            <div class="text">עוגת בת מצווה</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 /3</div>
+            <img class="im" style="width:100%" src="D:\html\פרויקט\פרויקט\iMG\עוגות\עוגת-זילוף-ליום-הולדת-בנות-שולמית-כהן.jpg" />
+            <div class="text">עוגת לבבות</div>
+            
+        </div>
+        <div class="mySlides fade">
+            <div class="numbertext">4 /4</div>
+            <img class="im" style="width:100%"src="D:\html\פרויקט\פרויקט\iMG\עוגות\עוגת-חצי-חצי.jpeg" /> 
+         
+            <div class="text"> עוגת שכבות</div>
+        </div>
+
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+    <script>
+        function magnify(imgID, zoom) {
+            var img, glass, w, h, bw;
+            img = document.getElementById(imgID);
+            /*create magnifier glass:*/
+            glass = document.createElement("DIV");
+            glass.setAttribute("class", "img-magnifier-glass");
+            /*insert magnifier glass:*/
+            img.parentElement.insertBefore(glass, img);
+            /*set background properties for the magnifier glass:*/
+            glass.style.backgroundImage = "url('" + img.src + "')";
+            glass.style.backgroundRepeat = "no-repeat";
+            glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+            bw = 3;
+            w = glass.offsetWidth / 2;
+            h = glass.offsetHeight / 2;
+            /*execute a function when someone moves the magnifier glass over the image:*/
+            glass.addEventListener("mousemove", moveMagnifier);
+            img.addEventListener("mousemove", moveMagnifier);
+            /*and also for touch screens:*/
+            glass.addEventListener("touchmove", moveMagnifier);
+            img.addEventListener("touchmove", moveMagnifier);
+            function moveMagnifier(e) {
+                var pos, x, y;
+                /*prevent any other actions that may occur when moving over the image*/
+                e.preventDefault();
+                /*get the cursor's x and y positions:*/
+                pos = getCursorPos(e);
+                x = pos.x;
+                y = pos.y;
+                /*prevent the magnifier glass from being positioned outside the image:*/
+                if (x > img.width - (w / zoom)) { x = img.width - (w / zoom); }
+                if (x < w / zoom) { x = w / zoom; }
+                if (y > img.height - (h / zoom)) { y = img.height - (h / zoom); }
+                if (y < h / zoom) { y = h / zoom; }
+                /*set the position of the magnifier glass:*/
+                glass.style.left = (x - w) + "px";
+                glass.style.top = (y - h) + "px";
+                /*display what the magnifier glass "sees":*/
+                glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+            }
+            function getCursorPos(e) {
+                var a, x = 0, y = 0;
+                e = e || window.event;
+                /*get the x and y positions of the image:*/
+                a = img.getBoundingClientRect();
+                /*calculate the cursor's x and y coordinates, relative to the image:*/
+                x = e.pageX - a.left;
+                y = e.pageY - a.top;
+                /*consider any page scrolling:*/
+                x = x - window.pageXOffset;
+                y = y - window.pageYOffset;
+                return { x: x, y: y };
+            }
+        }
+    </script>
+
+    <div class="flex-container">
+        <div>
+            <div class="container">
+                <img class="image"src="..\iMG\עוגות\birthday_cake_mini_mouse.jpg" />
+                 
+                <div class="overlay">
+                    <a href="עוגות יומולדת.html">עוגות יומולדת</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+                <img class="image"src="..\iMG\KRT_8576-1200-360x265.jpg" />
+              
+                <div class="overlay">
+                    <a href="עוגות קונדטוריה.html">עוגות קונדטוריה</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+                <img class="image" src="..\iMG\עוגות מספרים\עוגת-מספרים-40-ממתקים.jpeg" />
+        
+                <div class="overlay">
+                    <a href="עוגות מספרים.html">עוגות מספרים</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+                <img class="image"src="..\iMG\פסטות\פסטה-ירקות1.jpg" />
+             
+                <div class="overlay">
+                    <a href="פסטות.html">פסטות</a>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="container">
+                
+                <img class="image" src="..\iMG\שיקים\6706e33e7254d3e808095b3e8f8a0efe--brunch-food-israeli-food.jpg" />
+                <div class="overlay">
+
+                    <a href="מאפים.html">מאפים</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+                <img class="image" src="..\iMG\שייק-ענבים-קפואים-20-1024x683.jpg" />
+              
+                <div class="overlay">
+                    <a href="שיקים.html">שיקים</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+                <img class="image" src="..\iMG\בשרי\63691023282.999_8356425_Meat Restaurant.jpg" />
+                <div class="overlay">
+                    <a href="בשרי.html">בשרים</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+</body>
+</html>
